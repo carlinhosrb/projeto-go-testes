@@ -8,8 +8,15 @@ jobs:
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v4
+    
     - name: setup Docker Build
       uses: docker/setup-buildx-action@v3.5.0
+
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v4.1.8
+      with:
+    # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
+        name: programa_go
 
     - name: Docker Login
   # You may pin to the exact commit or the version.
